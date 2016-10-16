@@ -1,0 +1,25 @@
+{
+  "name": "groupuris",
+  "version": "0.0.2",
+  "description": "Create Group URIs",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/melvincarvalho/groupuris.git"
+  },
+  "keywords": [
+    "group",
+    "uris",
+    "rdf",
+    "solid"
+  ],
+  "author": "Melvin Carvalho <melvincarvalho@gmail.com> (https://melvincarvalho.com/#me)",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/melvincarvalho/groupuris/issues"
+  },
+  "homepage": "https://github.com/melvincarvalho/groupuris#readme"
+}
