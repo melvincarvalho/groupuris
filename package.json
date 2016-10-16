@@ -1,11 +1,11 @@
 {
   "name": "groupuris",
-  "version": "0.1.2",
+  "version": "0.1.3",
   "description": "Create Group URIs",
   "main": "index.js",
   "scripts": {
     "test": "mocha",
-    "build-browserified": "browserify -r ./index.js > dist/groupuris.js",
+    "build-browserified": "browserify -r ./index.js:groupuris > dist/groupuris.js",
     "build": "npm run clean && mkdir -p dist && npm run standard && npm run build-browserified",
     "clean": "rm -rf dist/",
     "standard": "standard lib/*"
