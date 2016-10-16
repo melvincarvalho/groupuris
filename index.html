@@ -1,18 +1,25 @@
 <html>
 <head>
+
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.4/css/bootstrap.min.css" integrity="sha384-2hfp1SzUoho7/TsGGGDaFdsuuDL0LX2hnUp6VkX3CUQ2K4K+xjboZdsXyp4oUHZj" crossorigin="anonymous">
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.4/js/bootstrap.min.js" integrity="sha384-VjEeINv9OSwtWFLAtmc4JCtEJXXBub00gtSnszmspDLCtC0I4z4nqz7rEFbIZLLU" crossorigin="anonymous"></script>
+  <title>Group URI Test</title>
+
 </head>
 <body>
 
-  <form onsubmit="return startConference()" method="">
+  <div class="container" style="margin-top: 40px">
+    <form onsubmit="return startConference()" method="">
 
-  <input type="input" name="sb" value="Webid1">
-  <br>
-  <input type="input" name="sb" value="Webid2">
-  <br>
-  <br>
-  <input type="submit" name="sb" value="Start Conference Room">
+      <input type="input" name="sb" placeholder="First WebID">
+      <br>
+      <input type="input" name="sb" placeholder="Second WebID">
+      <br>
+      <br>
+      <input type="submit" name="sb" value="Start Conference Room">
 
-  </form>
+    </form>
+  </div>
 
 </body>
 <script src="dist/groupuris.js"></script>
@@ -42,6 +49,8 @@ function startConference() {
 
   return false
 }
+
+document.getElementsByTagName('input')[0].focus()
 
 </script>
 </html>
