@@ -36,6 +36,10 @@ function startConference() {
   var confURI = baseURI + hash
   console.log(confURI)
 
+  setTimeout(function(){
+    window.location = confURI
+  }, 1000)
+
   return false
 }
 
