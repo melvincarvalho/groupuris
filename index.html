@@ -1,0 +1,43 @@
+<html>
+<head>
+</head>
+<body>
+
+  <form onsubmit="return startConference()" method="">
+
+  <input type="input" name="sb" value="Webid1">
+  <br>
+  <input type="input" name="sb" value="Webid2">
+  <br>
+  <br>
+  <input type="submit" name="sb" value="Start Conference Room">
+
+  </form>
+
+</body>
+<script src="dist/groupuris.js"></script>
+<script>
+
+
+
+function startConference() {
+  console.log('clicked')
+  var webid1 = document.getElementsByTagName('input')[0].value
+  var webid2 = document.getElementsByTagName('input')[1].value
+  var agents = [webid1, webid2]
+  console.log(agents)
+
+  var groupuris = require('groupuris')
+
+  var turtle = groupuris.agentsToGroup(agents)
+  var hash = groupuris.toSha256Base64url(turtle)
+
+  var baseURI = 'https://rollcall.audio/?room='
+  var confURI = baseURI + hash
+  console.log(confURI)
+
+  return false
+}
+
+</script>
+</html>
