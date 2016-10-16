@@ -1,6 +1,6 @@
 {
   "name": "groupuris",
-  "version": "0.0.10",
+  "version": "0.0.11",
   "description": "Create Group URIs",
   "main": "index.js",
   "scripts": {
@@ -20,6 +20,9 @@
   "license": "MIT",
   "bugs": {
     "url": "https://github.com/melvincarvalho/groupuris/issues"
+  },
+  "bin": {
+    "groupuris": "./bin/groupuris.js"
   },
   "homepage": "https://github.com/melvincarvalho/groupuris#readme",
   "dependencies": {
