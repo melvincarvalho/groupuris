@@ -102,6 +102,9 @@ $.ajax({
     console.log(user)
     var kb = $rdf.graph()
     var fetcher = $rdf.fetcher(kb)
+    var PROXY      = "https://data.fm/proxy?uri={uri}"
+    $rdf.Fetcher.crossSiteProxyTemplate=PROXY
+
     var FOAF = $rdf.Namespace("http://xmlns.com/foaf/0.1/")
     fetcher.nowOrWhenFetched(user.split('#')[0], undefined, function() {
       var knows = g.statementsMatching($rdf.sym(user), FOAF('knows'), undefined)
