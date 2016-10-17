@@ -2,6 +2,8 @@
 <head>
 
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.4/css/bootstrap.min.css" integrity="sha384-2hfp1SzUoho7/TsGGGDaFdsuuDL0LX2hnUp6VkX3CUQ2K4K+xjboZdsXyp4oUHZj" crossorigin="anonymous">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.0.0/jquery.min.js" integrity="sha384-THPy051/pYDQGanwU6poAc/hOdQxjnOEXzbT+OuUAFqNqFjL+4IGLBgCJC3ZOShY" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.2.0/js/tether.min.js" integrity="sha384-Plbmg8JY28KFelvJVai01l8WyZzrYWG825m+cZ0eDDS1f7d/js6ikvy1+X+guPIB" crossorigin="anonymous"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.4/js/bootstrap.min.js" integrity="sha384-VjEeINv9OSwtWFLAtmc4JCtEJXXBub00gtSnszmspDLCtC0I4z4nqz7rEFbIZLLU" crossorigin="anonymous"></script>
   <title>Group URI Test</title>
 
@@ -28,23 +30,35 @@
       </li>
     </ul>
     <form class="form-inline pull-xs-right">
-      <button class="btn btn-outline-success" type="submit">Login</button>
+      <button id="login" class="btn btn-outline-success" type="submit">Login</button>
     </form>
   </nav>
 
 
   <div class="container">
+    <div class="card text-xs-center">
+      <div class="card-header">
+        Welcome to Solid Teleconf
+      </div>
+      <div class="card-block">
+        <h4 class="card-title">Enter Two WebIDs</h4>
 
-    <div class="starter-template">
-      <form onsubmit="return startConference()" method="">
-        <input type="input" name="sb" placeholder="First WebID">
-        <br>
-        <input type="input" name="sb" placeholder="Second WebID">
-        <br>
-        <br>
-        <input type="submit" name="sb" value="Start Conference Room">
-      </form>
+        <form method="">
+          <input type="input" name="sb" placeholder="First WebID">
+          <br>
+          <input type="input" name="sb" placeholder="Second WebID">
+          <br>
+          <br>
+          <a href="#" id="start" class="btn btn-primary">Start Conference Call</a>
+        </form>
+
+        <p class="card-text">Form me on <a href="https://github.com/melvincarvalho/groupuris">Github</a></p>
+      </div>
+      <div class="card-footer text-muted">
+        Powered By Solid
+      </div>
     </div>
+
   </div>
 
 </body>
@@ -71,12 +85,13 @@ function startConference() {
 
   setTimeout(function(){
     window.location = confURI
-  }, 1000)
+  }, 500)
 
   return false
 }
 
 document.getElementsByTagName('input')[0].focus()
+document.getElementById('start').onclick = startConference
 
 </script>
 </html>
