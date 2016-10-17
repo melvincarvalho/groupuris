@@ -1,6 +1,6 @@
 {
   "name": "groupuris",
-  "version": "0.1.9",
+  "version": "0.1.10",
   "description": "Create Group URIs",
   "main": "index.js",
   "scripts": {
