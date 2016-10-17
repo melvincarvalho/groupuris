@@ -100,8 +100,8 @@ $.ajax({
     document.getElementsByTagName('input')[0].value = user
     document.getElementsByTagName('input')[1].focus()
     console.log(user)
-    var kb = $rdf.graph()
-    var fetcher = $rdf.fetcher(kb)
+    var g = $rdf.graph()
+    var fetcher = $rdf.fetcher(g)
     var PROXY      = "https://data.fm/proxy?uri={uri}"
     $rdf.Fetcher.crossSiteProxyTemplate=PROXY
 
