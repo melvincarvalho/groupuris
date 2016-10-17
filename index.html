@@ -44,9 +44,9 @@
         <h4 class="card-title">Enter Two WebIDs</h4>
 
         <form method="">
-          <input type="input" name="sb" placeholder="First WebID">
+          <input id="webid1" type="input" name="sb" placeholder="First WebID">
           <br>
-          <input type="input" name="sb" placeholder="Second WebID">
+          <input id="webid2" type="input" name="sb" placeholder="Second WebID">
           <br>
           <br>
           <a href="#" id="start" class="btn btn-primary">Start Conference Call</a>
@@ -72,7 +72,7 @@
 function startConference() {
   console.log('clicked')
   var webid1 = document.getElementsByTagName('input')[0].value
-  var webid2 = document.getElementsByTagName('input')[1].value
+  var webid2 = document.getElementById('webid2').value
   var agents = [webid1, webid2]
   console.log(agents)
 
@@ -109,6 +109,21 @@ $.ajax({
     fetcher.nowOrWhenFetched(user.split('#')[0], undefined, function() {
       var knows = g.statementsMatching($rdf.sym(user), FOAF('knows'), undefined)
       console.log(knows)
+      if (knows && knows.length) {
+
+        var select = '<select id="webid2" name="webid2">'
+
+        for (var i = 0; i < knows.length; i++) {
+          var know = knows[i]
+          var friend = know.object.uri
+          select += '<option value="' + friend + '">' + friend + '</option>'
+        }
+        select += '</select>'
+        log(select)
+
+        $("#webid2").replaceWith(select)
+
+      }
     })
   }
 })
