@@ -63,6 +63,8 @@
 
 </body>
 <script src="dist/groupuris.js"></script>
+<script src="https://solid.github.io/releases/rdflib.js/rdflib-0.7.0.min.js"></script>
+
 <script>
 
 
@@ -97,6 +99,14 @@ $.ajax({
     var user = xhr.getResponseHeader('User')
     document.getElementsByTagName('input')[0].value = user
     document.getElementsByTagName('input')[1].focus()
+    console.log(user)
+    var kb = $rdf.graph()
+    var fetcher = $rdf.fetcher(kb)
+    var FOAF = $rdf.Namespace("http://xmlns.com/foaf/0.1/")
+    fetcher.nowOrWhenFetched(user.split('#')[0], undefined, function() {
+      var knows = g.statementsMatching($rdf.sym(user), FOAF('knows'), undefined)
+      console.log(knows)
+    })
   }
 })
 
