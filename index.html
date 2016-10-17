@@ -97,34 +97,38 @@ $.ajax({
   url: 'https://melvin.databox.me/profile/card',
   success: function(data, status, xhr) {
     var user = xhr.getResponseHeader('User')
-    document.getElementsByTagName('input')[0].value = user
-    document.getElementsByTagName('input')[1].focus()
-    console.log(user)
-    var g = $rdf.graph()
-    var fetcher = $rdf.fetcher(g)
-    var PROXY      = "https://data.fm/proxy?uri={uri}"
-    $rdf.Fetcher.crossSiteProxyTemplate=PROXY
+    if (user) {
 
-    var FOAF = $rdf.Namespace("http://xmlns.com/foaf/0.1/")
-    fetcher.nowOrWhenFetched(user.split('#')[0], undefined, function() {
-      var knows = g.statementsMatching($rdf.sym(user), FOAF('knows'), undefined)
-      console.log(knows)
-      if (knows && knows.length) {
+      document.getElementsByTagName('input')[0].value = user
+      document.getElementsByTagName('input')[1].focus()
+      console.log(user)
+      var g = $rdf.graph()
+      var fetcher = $rdf.fetcher(g)
+      var PROXY      = "https://data.fm/proxy?uri={uri}"
+      $rdf.Fetcher.crossSiteProxyTemplate=PROXY
 
-        var select = '<select id="webid2" name="webid2">'
+      var FOAF = $rdf.Namespace("http://xmlns.com/foaf/0.1/")
+      fetcher.nowOrWhenFetched(user.split('#')[0], undefined, function() {
+        var knows = g.statementsMatching($rdf.sym(user), FOAF('knows'), undefined)
+        console.log(knows)
+        if (knows && knows.length) {
 
-        for (var i = 0; i < knows.length; i++) {
-          var know = knows[i]
-          var friend = know.object.uri
-          select += '<option value="' + friend + '">' + friend + '</option>'
+          var select = '<select id="webid2" name="webid2">'
+
+          for (var i = 0; i < knows.length; i++) {
+            var know = knows[i]
+            var friend = know.object.uri
+            select += '<option value="' + friend + '">' + friend + '</option>'
+          }
+          select += '</select>'
+          console.log(select)
+
+          $("#webid2").replaceWith(select)
+
         }
-        select += '</select>'
-        console.log(select)
+      })
 
-        $("#webid2").replaceWith(select)
-
-      }
-    })
+    }
   }
 })
 
