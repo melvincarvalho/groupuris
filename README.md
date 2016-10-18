@@ -19,7 +19,7 @@ npm install -g groupuris
 ####commandline:
 ```bash
 $ groupuris https://melvincarvalho.com/#me http://csarven.ca/#i
-GE7vGwCUU_3mX3PMy5cefAAZ4_zuBpFq-mHyF1CZ7nM
+AO8kEF3c6teJ0n8fJ20_JZEosg4klzFF2vQOf-pTzkg
 ```
 
 ####node:
