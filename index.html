@@ -79,6 +79,7 @@ function startConference() {
   var groupuris = require('groupuris')
 
   var turtle = groupuris.agentsToGroup(agents)
+  console.log(turtle)
   var hash = groupuris.toSha256Base64url(turtle)
 
   var baseURI = 'https://meet.jit.si/'
